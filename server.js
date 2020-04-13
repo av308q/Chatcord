@@ -22,9 +22,13 @@ io.on('connection', socket => {
     // Run when client disconects 
     socket.on('disconnect', () =>{
         io.emit('message', 'A user has left the chat');
-
     });
-});
+
+    // listen to chatMessage 
+    socket.on('chatMessage', msg => {
+      io.emit('message', msg);
+    });    
+  });
 
 const PORT = 3000 || process.env.PORT;
 
