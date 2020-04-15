@@ -23,6 +23,10 @@ const msg = e.target.elements.msg.value;
 
 // Emit message to sever
 socket.emit('chatMessage', msg);
+
+ //Clear input 
+ e.target.elements.msg.value = '';
+ e.target.elements.msg.focus();
 });
 
 // Output message to DOM
